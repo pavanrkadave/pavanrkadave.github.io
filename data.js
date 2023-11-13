@@ -36,6 +36,8 @@ export const about = {
     "javascript",
     "postgresql",
     "nodejs",
+    "AWS",
+    "Terraform"
   ],
   tools: ["github", "visualstudio", "linux"],
 };
