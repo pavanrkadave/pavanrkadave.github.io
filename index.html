@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavan Hegde - DevOps & Backend Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+</head>
+
+<body>
+    <!-- Page Progress Indicator -->
+    <div class="page-progress">
+        <div class="page-progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Section Navigation Dots -->
+    <div class="section-nav">
+        <div class="section-dot" data-section="Home" data-target="#home"></div>
+        <div class="section-dot" data-section="About" data-target="#about"></div>
+        <div class="section-dot" data-section="Experience" data-target="#experience"></div>
+        <div class="section-dot" data-section="Projects" data-target="#projects"></div>
+        <div class="section-dot" data-section="Contact" data-target="#contact"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Pavan Hegde</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Pavan Hegde</span></h1>
+                    <p class="hero-subtitle"><span class="code-accent">const</span> role = <span
+                            class="string-accent">"DevOps & Backend Engineer"</span></p>
+                    <p class="hero-description">
+                        I build scalable infrastructure and robust backend systems with 5 years of software development
+                        experience, specializing in DevOps and DevSecOps.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            I'm a passionate DevOps and Backend Engineer with 5 years of software development
+                            experience,
+                            including 2 years specializing in DevOps and DevSecOps. I excel at building scalable
+                            infrastructure,
+                            automating deployment pipelines, and creating robust backend systems that power modern
+                            applications.
+                        </p>
+                        <div class="skills">
+                            <h3>Skills <span class="code-accent">{ }</span></h3>
+
+                            <div class="skills-category">
+                                <h4 class="category-title">Security & DevSecOps</h4>
+                                <div class="skills-grid">
+                                    <div class="skill-card github">
+                                        <i class="devicon-github-original skill-icon"></i>
+                                        <span class="skill-name">GitHub Actions</span>
+                                    </div>
+                                    <div class="skill-card jenkins">
+                                        <i class="devicon-jenkins-line skill-icon"></i>
+                                        <span class="skill-name">Jenkins</span>
+                                    </div>
+                                    <div class="skill-card sonar">
+                                        <i class="devicon-sonarqube-original skill-icon"></i>
+                                        <span class="skill-name">SonarQube</span>
+                                    </div>
+                                    <div class="skill-card aws">
+                                        <i class="devicon-amazonwebservices-original skill-icon"></i>
+                                        <span class="skill-name">AWS IAM</span>
+                                    </div>
+                                    <div class="skill-card terraform">
+                                        <i class="devicon-terraform-plain skill-icon"></i>
+                                        <span class="skill-name">Terraform</span>
+                                    </div>
+                                    <div class="skill-card aws">
+                                        <i class="devicon-amazonwebservices-original skill-icon"></i>
+                                        <span class="skill-name">GuardDuty</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skills-category">
+                                <h4 class="category-title">Cloud & Infrastructure</h4>
+                                <div class="skills-grid">
+                                    <div class="skill-card aws">
+                                        <i class="devicon-amazonwebservices-original skill-icon"></i>
+                                        <span class="skill-name">AWS</span>
+                                    </div>
+                                    <div class="skill-card docker">
+                                        <i class="devicon-docker-plain skill-icon"></i>
+                                        <span class="skill-name">Docker</span>
+                                    </div>
+                                    <div class="skill-card kubernetes">
+                                        <i class="devicon-kubernetes-plain skill-icon"></i>
+                                        <span class="skill-name">Kubernetes</span>
+                                    </div>
+                                    <div class="skill-card terraform">
+                                        <i class="devicon-terraform-plain skill-icon"></i>
+                                        <span class="skill-name">Terraform</span>
+                                    </div>
+                                    <div class="skill-card kubernetes">
+                                        <i class="devicon-helm-original skill-icon"></i>
+                                        <span class="skill-name">Helm</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skills-category">
+                                <h4 class="category-title">Development & Testing</h4>
+                                <div class="skills-grid">
+                                    <div class="skill-card java">
+                                        <i class="devicon-java-plain skill-icon"></i>
+                                        <span class="skill-name">Java</span>
+                                    </div>
+                                    <div class="skill-card javascript">
+                                        <i class="devicon-javascript-plain skill-icon"></i>
+                                        <span class="skill-name">JavaScript</span>
+                                    </div>
+                                    <div class="skill-card typescript">
+                                        <i class="devicon-typescript-plain skill-icon"></i>
+                                        <span class="skill-name">TypeScript</span>
+                                    </div>
+                                    <div class="skill-card spring">
+                                        <i class="devicon-spring-plain skill-icon"></i>
+                                        <span class="skill-name">Spring Boot</span>
+                                    </div>
+                                    <div class="skill-card nodejs">
+                                        <i class="devicon-nodejs-plain skill-icon"></i>
+                                        <span class="skill-name">Node.js</span>
+                                    </div>
+                                    <div class="skill-card graphql">
+                                        <i class="devicon-graphql-plain skill-icon"></i>
+                                        <span class="skill-name">GraphQL</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skills-category">
+                                <h4 class="category-title">Monitoring & Tooling</h4>
+                                <div class="skills-grid">
+                                    <div class="skill-card prometheus">
+                                        <i class="devicon-prometheus-original skill-icon"></i>
+                                        <span class="skill-name">Prometheus</span>
+                                    </div>
+                                    <div class="skill-card grafana">
+                                        <i class="devicon-grafana-original skill-icon"></i>
+                                        <span class="skill-name">Grafana</span>
+                                    </div>
+                                    <div class="skill-card elasticsearch">
+                                        <i class="devicon-elasticsearch-plain skill-icon"></i>
+                                        <span class="skill-name">ELK Stack</span>
+                                    </div>
+                                    <div class="skill-card git">
+                                        <i class="devicon-git-plain skill-icon"></i>
+                                        <span class="skill-name">Git</span>
+                                    </div>
+                                    <div class="skill-card jira">
+                                        <i class="devicon-jira-plain skill-icon"></i>
+                                        <span class="skill-name">Jira</span>
+                                    </div>
+                                    <div class="skill-card bash">
+                                        <i class="devicon-bash-plain skill-icon"></i>
+                                        <span class="skill-name">Bash</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title">Experience <span class="code-accent">Timeline</span></h2>
+                <div class="experience-container">
+                    <div class="experience-tree">
+                        <div class="experience-item active" data-experience="0">
+                            <div class="experience-header">
+                                <div class="company-header">
+                                    <div class="company-logo">
+                                        <img src="img/fev.png" alt="FEV EVA" class="logo-img">
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">FEV EVA GmbH</h3>
+                                        <span class="job-title">Working Student - Cloud / DevOps</span>
+                                    </div>
+                                </div>
+                                <div class="experience-meta">
+                                    <span class="duration">09/2024 – Present</span>
+                                    <span class="location">Munich, Germany</span>
+                                </div>
+                            </div>
+                            <div class="experience-details">
+                                <ul class="achievements">
+                                    <li>Migrated analytics platform ("Datahub") from EC2 to ECS Fargate, improving
+                                        scalability and cost-efficiency</li>
+                                    <li>Designed and implemented secure CI/CD pipelines using GitHub Actions,
+                                        including automated deployments for backend microservices and Lambda
+                                        functions</li>
+                                    <li>Integrated SonarQube and Checkov into CI/CD for automated code quality and
+                                        infrastructure security checks</li>
+                                    <li>Provisioned and managed infrastructure using Terraform, applying DevSecOps
+                                        best practices (remote state, locking, encrypted S3 buckets, versioning)
+                                    </li>
+                                    <li>Used Mozilla SOPS + AWS KMS to securely store secrets in Git and AWS Secrets
+                                        Manager for runtime configuration</li>
+                                    <li>Implemented monitoring and alerting via AWS CloudWatch Dashboards and alarms
+                                    </li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge aws"><i
+                                            class="devicon-amazonwebservices-original"></i>AWS</span>
+                                    <span class="tech-badge terraform"><i
+                                            class="devicon-terraform-plain"></i>Terraform</span>
+                                    <span class="tech-badge github"><i class="devicon-github-original"></i>GitHub
+                                        Actions</span>
+                                    <span class="tech-badge aws"><i class="devicon-amazonwebservices-original"></i>ECS
+                                        Fargate</span>
+                                    <span class="tech-badge sonar"><i
+                                            class="devicon-sonarqube-original"></i>SonarQube</span>
+                                    <span class="tech-badge security"><i class="devicon-bash-plain"></i>Checkov</span>
+                                    <span class="tech-badge security"><i class="devicon-bash-plain"></i>SOPS</span>
+                                    <span class="tech-badge aws"><i
+                                            class="devicon-amazonwebservices-original"></i>CloudWatch</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-item" data-experience="1">
+                            <div class="experience-header">
+                                <div class="company-header">
+                                    <div class="company-logo">
+                                        <img src="img/bmw.png" alt="BMW Group" class="logo-img">
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">BMW Group</h3>
+                                        <span class="job-title">Working Student - Cloud / DevOps</span>
+                                    </div>
+                                </div>
+                                <div class="experience-meta">
+                                    <span class="duration">07/2023 – 09/2024</span>
+                                    <span class="location">Munich, Germany</span>
+                                </div>
+                            </div>
+                            <div class="experience-details">
+                                <ul class="achievements">
+                                    <li>Configured ELBs with OIDC-based authentication using BMW Web-EAM for secure
+                                        identity management across frontend and backend systems</li>
+                                    <li>Defined role-based access controls (RBAC) with AWS IAM for least-privilege
+                                        CI/CD pipeline access—eliminating static credentials</li>
+                                    <li>Acted on AWS Trusted Advisor security recommendations to enhance
+                                        infrastructure posture</li>
+                                    <li>Familiar with GuardDuty and security auditing tools to monitor threats and
+                                        maintain compliance</li>
+                                    <li>Implemented comprehensive monitoring and alerting solutions using AWS
+                                        CloudWatch</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge aws"><i
+                                            class="devicon-amazonwebservices-original"></i>AWS</span>
+                                    <span class="tech-badge security"><i
+                                            class="devicon-amazonwebservices-original"></i>IAM</span>
+                                    <span class="tech-badge security"><i
+                                            class="devicon-amazonwebservices-original"></i>OIDC</span>
+                                    <span class="tech-badge aws"><i
+                                            class="devicon-amazonwebservices-original"></i>GuardDuty</span>
+                                    <span class="tech-badge aws"><i
+                                            class="devicon-amazonwebservices-original"></i>CloudWatch</span>
+                                    <span class="tech-badge security"><i class="devicon-bash-plain"></i>Security</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-item" data-experience="2">
+                            <div class="experience-header">
+                                <div class="company-header">
+                                    <div class="company-logo service-health-logo">
+                                        <img src="img/service_health.jpg" alt="service.health" class="logo-img"
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="logo-fallback" style="display: none;">
+                                            <span class="logo-text">service.health</span>
+                                        </div>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">service.health</h3>
+                                        <span class="job-title">Working Student - Software Developer</span>
+                                    </div>
+                                </div>
+                                <div class="experience-meta">
+                                    <span class="duration">11/2022 – 04/2023</span>
+                                    <span class="location">Berlin, Germany</span>
+                                </div>
+                            </div>
+                            <div class="experience-details">
+                                <ul class="achievements">
+                                    <li>Developed and deployed microservices in Java and Quarkus for Germany's
+                                        electronic
+                                        sick note system</li>
+                                    <li>Ensured seamless integration with existing healthcare systems</li>
+                                    <li>Implemented robust testing frameworks using JUnit to validate service
+                                        functionality
+                                        and compliance</li>
+                                    <li>Familiar with GuardDuty and security auditing tools to monitor threats and
+                                        maintain
+                                        compliance</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge java"><i class="devicon-java-plain"></i>Java</span>
+                                    <span class="tech-badge java"><i class="devicon-java-plain"></i>Quarkus</span>
+                                    <span class="tech-badge java"><i class="devicon-java-plain"></i>JUnit</span>
+                                    <span class="tech-badge aws"><i
+                                            class="devicon-amazonwebservices-original"></i>GuardDuty</span>
+                                    <span class="tech-badge docker"><i
+                                            class="devicon-docker-plain"></i>Microservices</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-item" data-experience="3">
+                            <div class="experience-header">
+                                <div class="company-header">
+                                    <div class="company-logo">
+                                        <img src="img/gt.png" alt="Grant Thornton" class="logo-img">
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">Grant Thornton LLP</h3>
+                                        <span class="job-title">Consultant</span>
+                                    </div>
+                                </div>
+                                <div class="experience-meta">
+                                    <span class="duration">11/2020 – 04/2022</span>
+                                    <span class="location">Bangalore, India</span>
+                                </div>
+                            </div>
+                            <div class="experience-details">
+                                <ul class="achievements">
+                                    <li>Designed and implemented backend services using Spring Boot and integrated with
+                                        Tesseract OCR</li>
+                                    <li>Automated data extraction and reporting processes for U.S. State and Federal K1
+                                        documents, reducing manual effort by 40%</li>
+                                    <li>Developed backend services for university transcript digitization, enhancing
+                                        operational efficiency</li>
+                                    <li>Collaborated with cross-functional teams to deliver digital solutions using
+                                        Zero-Code tools like Power Automate and Catalytic</li>
+                                    <li>Optimized data workflows and aligned solutions with organizational goals</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-badge spring"><i class="devicon-spring-plain"></i>Spring
+                                        Boot</span>
+                                    <span class="tech-badge python"><i class="devicon-python-plain"></i>Tesseract
+                                        OCR</span>
+                                    <span class="tech-badge microsoft"><i
+                                            class="devicon-microsoftsqlserver-plain"></i>Power Automate</span>
+                                    <span class="tech-badge java"><i class="devicon-java-plain"></i>Java</span>
+                                    <span class="tech-badge data"><i class="devicon-postgresql-plain"></i>Data
+                                        Processing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">CI/CD Pipeline</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Automated CI/CD Pipeline</h3>
+                            <p class="project-description">
+                                Built a comprehensive CI/CD pipeline with automated testing, security scanning,
+                                and deployment to multiple environments using Jenkins and GitLab CI.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Jenkins</span>
+                                <span class="tech-tag">GitLab CI</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">SonarQube</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Documentation</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">Infrastructure</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Cloud Infrastructure Automation</h3>
+                            <p class="project-description">
+                                Designed and implemented Infrastructure as Code using Terraform and Ansible
+                                for AWS cloud deployment with auto-scaling and monitoring.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Ansible</span>
+                                <span class="tech-tag">CloudWatch</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Architecture</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">Microservices</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Microservices Platform</h3>
+                            <p class="project-description">
+                                Containerized microservices architecture with Kubernetes orchestration,
+                                service mesh, and comprehensive monitoring and logging solutions.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Istio</span>
+                                <span class="tech-tag">Prometheus</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-links">
+                    <a href="mailto:pavanrkadave@gmail.com" class="contact-link">
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com/pavanrkadave" class="contact-link" target="_blank">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/pavanhegde97" class="contact-link" target="_blank">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Pavan Hegde. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
