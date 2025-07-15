@@ -1,7 +1,8 @@
-// Mobile menu toggle
+// Simple mobile menu toggle
 const mobileMenu = document.getElementById('mobile-menu');
 const navMenu = document.querySelector('.nav-menu');
 
+// Handle mobile menu toggle
 mobileMenu.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
     navMenu.classList.toggle('active');
@@ -63,19 +64,19 @@ function updateSectionNavigation() {
         requestAnimationFrame(() => {
             const scrollPosition = window.scrollY + window.innerHeight / 2;
             let activeIndex = -1;
-            
+
             // Find the current section
             for (let i = 0; i < cachedSections.length; i++) {
                 const section = cachedSections[i];
                 const sectionTop = section.top;
                 const sectionBottom = sectionTop + section.height;
-                
+
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     activeIndex = i;
                     break;
                 }
             }
-            
+
             // Update active dot only if needed
             if (activeIndex >= 0) {
                 cachedSectionDots.forEach((dot, index) => {
@@ -88,33 +89,25 @@ function updateSectionNavigation() {
                     }
                 });
             }
-            
+
             ticking = false;
         });
-        
+
         ticking = true;
     }
 }
 
-// Enhanced scroll effect for navbar and progress with throttling
-let scrollTimeout;
+// Simple scroll handler for progress and navigation
 window.addEventListener('scroll', () => {
-    if (!scrollTimeout) {
-        scrollTimeout = setTimeout(() => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Update progress and section navigation
-            updatePageProgress();
-            updateSectionNavigation();
-            
-            scrollTimeout = null;
-        }, 10); // Small timeout for throttling
+    // Close mobile menu when scrolling
+    if (mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        navMenu.classList.remove('active');
     }
+
+    // Update progress and section navigation
+    updatePageProgress();
+    updateSectionNavigation();
 });
 
 // Section navigation dot clicks
@@ -170,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function () {
     const timelineDots = document.querySelectorAll('.timeline-dot');
     const experienceItems = document.querySelectorAll('.experience-item');
-    
+
     if (!timelineDots.length || !experienceItems.length) return;
 
     // Handle timeline dot clicks for navigation
@@ -190,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const experienceObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const index = Array.from(experienceItems).indexOf(entry.target);
-            
+
             if (entry.isIntersecting) {
                 // Show the experience item
                 entry.target.classList.add('active');
@@ -203,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Only deactivate if it's really out of view (improve performance)
                 const rect = entry.boundingClientRect;
                 const windowHeight = window.innerHeight;
-                
+
                 if (rect.top > windowHeight || rect.bottom < 0) {
                     // Hide the experience item when completely out of view
                     entry.target.classList.remove('active');
