@@ -1,225 +1,65 @@
-// Simple mobile menu toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.querySelector('.nav-menu');
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Handle mobile menu toggle
-mobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        navMenu.classList.remove('active');
+  // Cursor glow
+  const root = document.documentElement;
+  addEventListener('pointermove', e => {
+    root.style.setProperty('--x', e.clientX + 'px');
+    root.style.setProperty('--y', e.clientY + 'px');
+  }, { passive: true });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
     });
-});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+  // Terminal typing
+  const term = document.getElementById('term');
+  const lines = JSON.parse(term.dataset.lines);
+  const render = n => {
+    term.innerHTML = lines.slice(0, n).map(l =>
+      l.startsWith('$') ? `<span class="p">$</span>${l.slice(1)}` :
+      l.startsWith('✔') ? `<span class="ok">${l}</span>` : l
+    ).join('\n');
+  };
+  if (reduce) { render(lines.length); }
+  else {
+    let i = 0;
+    const tick = () => {
+      render(++i);
+      if (i < lines.length) setTimeout(tick, lines[i].startsWith('$') ? 900 : 450);
+    };
+    setTimeout(tick, 600);
+  }
+
+  // Count-up metrics
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    if (reduce || target === 0) return;
+    const obs = new IntersectionObserver(([en]) => {
+      if (!en.isIntersecting) return;
+      obs.disconnect();
+      const t0 = performance.now();
+      const step = t => {
+        const p = Math.min((t - t0) / 1200, 1);
+        el.textContent = pre + Math.round(target * (1 - Math.pow(1 - p, 3))) + suf;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
     });
-});
+    obs.observe(el);
+  });
 
-// Page Progress Indicator and Section Navigation
-function updatePageProgress() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercent = (scrollTop / scrollHeight) * 100;
-
-    const progressBar = document.getElementById('progress-bar');
-    if (progressBar) {
-        progressBar.style.width = scrollPercent + '%';
+  // Keyboard: press 1-4 style jump via "g" then letter is overkill; Cmd/Ctrl+K jumps to contact
+  addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     }
-}
-
-// Cache DOM elements and section positions for better performance
-let cachedSections = [];
-let cachedSectionDots = [];
-let ticking = false;
-
-function updateSectionNavigation() {
-    // Initialize cache if needed
-    if (cachedSections.length === 0) {
-        const sections = document.querySelectorAll('section');
-        cachedSections = Array.from(sections).map(section => ({
-            element: section,
-            top: section.offsetTop,
-            height: section.offsetHeight
-        }));
-        cachedSectionDots = Array.from(document.querySelectorAll('.section-dot'));
-    }
-
-    // Use requestAnimationFrame for better performance
-    if (!ticking) {
-        requestAnimationFrame(() => {
-            const scrollPosition = window.scrollY + window.innerHeight / 2;
-            let activeIndex = -1;
-
-            // Find the current section
-            for (let i = 0; i < cachedSections.length; i++) {
-                const section = cachedSections[i];
-                const sectionTop = section.top;
-                const sectionBottom = sectionTop + section.height;
-
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    activeIndex = i;
-                    break;
-                }
-            }
-
-            // Update active dot only if needed
-            if (activeIndex >= 0) {
-                cachedSectionDots.forEach((dot, index) => {
-                    if (index === activeIndex) {
-                        if (!dot.classList.contains('active')) {
-                            dot.classList.add('active');
-                        }
-                    } else if (dot.classList.contains('active')) {
-                        dot.classList.remove('active');
-                    }
-                });
-            }
-
-            ticking = false;
-        });
-
-        ticking = true;
-    }
-}
-
-// Simple scroll handler for progress and navigation
-window.addEventListener('scroll', () => {
-    // Close mobile menu when scrolling
-    if (mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-
-    // Update progress and section navigation
-    updatePageProgress();
-    updateSectionNavigation();
-});
-
-// Section navigation dot clicks
-document.addEventListener('DOMContentLoaded', function () {
-    const sectionDots = document.querySelectorAll('.section-dot');
-
-    sectionDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const targetId = dot.getAttribute('data-target');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Initialize progress and navigation on load
-    updatePageProgress();
-    updateSectionNavigation();
-});
-
-// Simple fade-in animation for sections - optimized for performance
-const observerOptions = {
-    threshold: 0.05,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Unobserve after animation to save resources
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Apply animation to sections
-document.addEventListener('DOMContentLoaded', () => {
-    // Add CSS classes instead of inline styles for better performance
-    const sections = document.querySelectorAll('section:not(.hero)');
-    sections.forEach(section => {
-        section.classList.add('fade-in');
-        observer.observe(section);
-    });
-});
-
-// Experience Timeline Functionality - Scroll-based reveal (optimized)
-document.addEventListener('DOMContentLoaded', function () {
-    const timelineDots = document.querySelectorAll('.timeline-dot');
-    const experienceItems = document.querySelectorAll('.experience-item');
-
-    if (!timelineDots.length || !experienceItems.length) return;
-
-    // Handle timeline dot clicks for navigation
-    timelineDots.forEach((dot, index) => {
-        if (index < experienceItems.length) {
-            dot.addEventListener('click', () => {
-                // Smooth scroll to the experience item
-                experienceItems[index].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            });
-        }
-    });
-
-    // Intersection Observer for scroll-based content reveal
-    const experienceObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const index = Array.from(experienceItems).indexOf(entry.target);
-
-            if (entry.isIntersecting) {
-                // Show the experience item
-                entry.target.classList.add('active');
-
-                // Activate corresponding timeline dot
-                if (timelineDots[index]) {
-                    timelineDots[index].classList.add('active');
-                }
-            } else {
-                // Only deactivate if it's really out of view (improve performance)
-                const rect = entry.boundingClientRect;
-                const windowHeight = window.innerHeight;
-
-                if (rect.top > windowHeight || rect.bottom < 0) {
-                    // Hide the experience item when completely out of view
-                    entry.target.classList.remove('active');
-
-                    // Deactivate corresponding timeline dot
-                    if (timelineDots[index]) {
-                        timelineDots[index].classList.remove('active');
-                    }
-                }
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '-5% 0px -5% 0px'
-    });
-
-    // Observe all experience items
-    experienceItems.forEach(item => {
-        experienceObserver.observe(item);
-    });
-
-    // Add staggered animation delay for experience items using classes instead of inline styles
-    experienceItems.forEach((item, index) => {
-        item.classList.add(`delay-${Math.min(index, 5)}`);
-    });
-});
+  });
+})();

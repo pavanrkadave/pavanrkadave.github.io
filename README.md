@@ -1,2 +1,2 @@
 # pavanrkadave.github.io
-Personal Portfolio
+Personal portfolio. Static HTML/CSS/JS, no build step.
